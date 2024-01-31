@@ -1,11 +1,10 @@
-import React, { useState,useEffect } from 'react';
-import './App.css';
-import ShowDetails from './Components/ShowDetails';
-import TvShows from './Components/TvShows';
-import { Routes,Route } from 'react-router-dom';
+import React, { useState, useEffect } from "react";
+import "./App.css";
+import ShowDetails from "./Components/ShowDetails";
+import TvShows from "./Components/TvShows";
+import { Routes, Route } from "react-router-dom";
 
 function App() {
-
   const [showData, setShowData] = useState([]);
 
   useEffect(() => {
@@ -24,7 +23,7 @@ function App() {
 
   return (
     <Routes>
-      <Route path="/" element={<TvShows showData={showData}/>} />
+      <Route path="/" element={<TvShows showData={showData} />} />
       <Route path="details/:id" element={<ShowDetails showData={showData} />} />
     </Routes>
   );
