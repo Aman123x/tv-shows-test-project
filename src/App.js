@@ -1,24 +1,32 @@
-import logo from './logo.svg';
+import React, { useState,useEffect } from 'react';
 import './App.css';
+import ShowDetails from './Components/ShowDetails';
+import TvShows from './Components/TvShows';
+import { Routes,Route } from 'react-router-dom';
 
 function App() {
+
+  const [showData, setShowData] = useState([]);
+
+  useEffect(() => {
+    CallShowApi();
+  }, []);
+
+  async function CallShowApi() {
+    try {
+      const response = await fetch("https://api.tvmaze.com/search/shows?q=all");
+      const data = await response.json();
+      setShowData(data);
+    } catch (err) {
+      console.log(err);
+    }
+  }
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" element={<TvShows showData={showData}/>} />
+      <Route path="details/:id" element={<ShowDetails showData={showData} />} />
+    </Routes>
   );
 }
 
