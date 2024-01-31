@@ -2,7 +2,6 @@ import React from "react";
 import "./TvShows.css";
 
 const TvShows = (props) => {
-  
 
   function handleBtn(id){
     const showDetailsUrl = `/details/${id}`;
