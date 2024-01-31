@@ -8,7 +8,7 @@ const TvShows = (props) => {
   }
 
   return (
-    <div>
+    <div className="parent_tvShows">
       <h1>TV Shows</h1>
       <div className="container">
         {props.showData &&

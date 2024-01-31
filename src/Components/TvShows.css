@@ -1,3 +1,7 @@
+.parent_tvShows h1{
+  text-align: center;
+}
+
 .container {
     display: flex;
     flex-wrap: wrap;
